@@ -56,6 +56,27 @@ display: block;
 border-style: solid;
 height: 13px;
 width: 16px;}
+
+
+
+
+.icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+
 </style>
 
 <body>
@@ -93,14 +114,31 @@ width: 16px;}
                     </li>
 
                     <li class="nav-item">
-                        <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModalCarrito"
-                            class="btn btn-secondary "><i class="fas fa-shopping-cart fa-1x"></i></a>
+                        <div class="icon-container">
+                            <a  id="botonCarrito" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#idModalCarrito"
+                                class="btn btn-secondary ">
+                                <i class="fas fa-shopping-cart fa-1x"></i>
+                                <span class="icon-badge">
+                                    <div id="contar-items" class="contar">0</div>
+                                    </span>
+                            </a>
+                        </div>
                     </li>
                    
                     <li class="nav-item">
                         <div id="contar-items" class="contar"></div>
                     </li>
-                                  </ul>
+
+                    <!-- <li class="nav-item">
+                        <div class="icon-container">
+                            <i class="fas fa-bell"></i>
+                            <span class="icon-badge">5</span>
+                        </div>
+                    </li> -->
+
+                </ul>
 
             </div>
         </nav>
