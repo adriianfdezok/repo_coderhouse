@@ -83,37 +83,25 @@ function mostrar_catalogo(){
 
 function calcularCuotas() {
 
+    let Cuotas = document.getElementById("cuotas").value;
+    let totalReduce = 0;
+    //SI NO EXISTE document.getElementById("totalReduce").textContent; queda en cero.
+        try {
+            totalReduce = document.getElementById("totalReduce").textContent;
+            if(totalReduce == null) {
+                throw new Error('El div no existe');
+            }
+        } catch(error) {   }     //console.error(error);    
 
-        let Cuotas = document.getElementById("cuotas").value;
+        //let modelo_celular = document.getElementById("modelo_celular").value;
 
-        let totalReduce = document.getElementById("totalReduce").textContent;
-
-    
-    //let modelo_celular = document.getElementById("modelo_celular").value;
-
-    if (isNaN(Cuotas) || Cuotas <= 0) {
-            document.getElementById("resultado").innerHTML = '<span "text-center fs-2 p-2">  La cantidad de cuotas ingresadas es inválida.😭 <span> ';
-    //} else if (modelo_celular === "") {
-   //     document.getElementById("resultado").innerHTML = ' El modelo del celular no puede estar vacío.';
-    } else {
-        //const celulares_encontrados = buscar(modelo_celular);
-        // if (celulares_encontrados.length === 0) {
-        //     //let resultado = 'No se encontraron celulares con el modelo ' + modelo_celular + '<br>';
-        //     for (const celular_ of celulares) {
-        //         resultado += celular_.marca + ' ' + celular_.modelo + ' precio: ' + celular_.precio + '<br>';
-        //     }
-        //     document.getElementById("resultado").innerHTML = resultado;
-        // } else {
-        //     let resultado = '';
-        //     for (const celular of celulares_encontrados) {
-                // resultado += celular.marca + ' ' + celular.modelo + ' - Precio de cuota: $' + dividir_cuotas(celular.precio, Cuotas).toFixed(2) + '<br>';
-
+        if (isNaN(Cuotas) || Cuotas <= 0) {
+                document.getElementById("resultado").innerHTML = '<span "text-center fs-2 p-2">  La cantidad de cuotas ingresadas es inválida.😭 <span> ';
+        } else {
                 resultado = 'Precio de cuota: $' + dividir_cuotas(totalReduce, Cuotas).toFixed(2) + '<br>';
-         //   }
-            document.getElementById("resultado").innerHTML = resultado;
-        //}
+                document.getElementById("resultado").innerHTML = resultado;
         
-    }
+        }
 }
  
 
