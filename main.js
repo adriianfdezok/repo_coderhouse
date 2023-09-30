@@ -1,5 +1,5 @@
 let modalBodyCarrito = document.getElementById("modal-bodyCarrito");
-let productosCarrito = []
+let productosCarrito = [];
 
 class Celular {
     constructor(id, marca, modelo, precio, imagen) {
@@ -21,47 +21,7 @@ const celular7 = new Celular(7, "asdasdasd", "asdasdasd", 1276500, "xiam.jpg");
 
 const celulares = [celular1, celular2, celular3, celular4, celular5, celular6, celular7];
 
-
-function mostrar_catalogo(){
-
-
-//setTimeout(() => {
-    let celulares_container = document.getElementById("catalogoHTML")
-
-//}, timeout);
-
-    celulares_container.innerHTML = ""
-     for(const celular of celulares){        
-        let celulares_div= document.createElement("div")
-        celulares_div.className = "col-8 col-md-8 col-lg-4 my-2"
-        celulares_div.innerHTML = `
-            <div id="${celular.id}" class="card" style="width: 18rem;">
-                    <img class="card-img-top img-fluid" style="width: 150px;" src="assets/${celular.imagen}" alt="${celular.marca} de ${celular.modelo} ">
-                    <div class="card-body">
-                         <p>La Marca es : ${celular.marca}</p>
-                        <p>El Modelo es : ${celular.modelo}</p>
-                        <p class="${celular.precio}">Precio: ${celular.precio}</p>
-                    <button id="agregarBtn${celular.id}" class="btn btn">Agregar al carrito</button>
-                    </div>
-        </div> `    
-        celulares_container.append(celulares_div)
-        let agregarBtn = document.getElementById(`agregarBtn${celular.id}`)
-        console.log(agregarBtn)
-        agregarBtn.addEventListener("click", () => {
-            agregarAlCarrito(celular)
-                /* script swal fire*/
-            // Swal.fire({
-            //     position: 'center',
-            //     icon: 'success',
-            //     title: 'Se agrego al carrito',
-            //     showConfirmButton: false,
-            //     timer: 1000
-            //   }) 
-        });     
-    }    
-}
-
-  function mostrar_catalogoHTML(celular) {
+function mostrar_catalogoHTML(celular) {
     return `
     <div class="col-8 col-md-6" style="width:300px; padding-top:20px;">
         <div class="card">
@@ -79,6 +39,56 @@ function mostrar_catalogo(){
     </div>  
     `;
 }
+//PROMESA
+function cargarProductosDesdeLocalStorage() {
+    return new Promise((resolve) => {
+        const carrito = JSON.parse(localStorage.getItem("carrito")) || []; /* || [] -> proporcionar un valor por defecto */
+        productosCarrito = carrito;
+        resolve();
+    });
+}
+//EL ASINC
+async function mostrar_catalogo() {
+    let celulares_container = document.getElementById("catalogoHTML");
+    celulares_container.innerHTML = "";
+
+    //ESPERA LA PROMESA
+    await cargarProductosDesdeLocalStorage();
+
+    for (const celular of celulares) {
+        let celulares_div = document.createElement("div");
+        celulares_div.className = "col-8 col-md-8 col-lg-4 my-2";
+        celulares_div.innerHTML = `
+            <div id="${celular.id}" class="card" style="width: 18rem;">
+                    <img class="card-img-top img-fluid" style="width: 150px;" src="assets/${celular.imagen}" alt="${celular.marca} de ${celular.modelo} ">
+                    <div class="card-body">
+                         <p>La Marca es : ${celular.marca}</p>
+                        <p>El Modelo es : ${celular.modelo}</p>
+                        <p class="${celular.precio}">Precio: ${celular.precio}</p>
+                    <button id="agregarBtn${celular.id}" class="btn btn">Agregar al carrito</button>
+                    </div>
+        </div> `;
+
+        celulares_container.append(celulares_div);
+
+        let agregarBtn = document.getElementById(`agregarBtn${celular.id}`);
+        agregarBtn.addEventListener("click", () => {
+            agregarAlCarrito(celular);
+        });
+    }
+}
+
+// Resto del código sin cambios
+
+// ...
+
+setTimeout(() => {
+    mostrar_catalogo();
+}, 500);
+
+new kursor({
+    type: 1
+});
 
 
 function calcularCuotas() {
@@ -220,7 +230,7 @@ function mostrarCliente() {
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
-                    title: 'ya esta pelotudo',
+                    title: `este ${CelularAgregado.marca}${CelularAgregado.modelo} no se puede agregar  por que ya existe en el carrito`,
                     showConfirmButton: false,
                     timer: 1000
                 }) ;
@@ -308,7 +318,4 @@ new kursor({
     type: 1
  
     
-})  
- 
-
-
+}) 
