@@ -17,8 +17,9 @@ const celular3 = new Celular(3, "motorola", "e15", 98600, "moto_e15.jpg");
 const celular4 = new Celular(4, "iPhone", "12 Pro", 215000, "iphone12.jpg");
 const celular5 = new Celular(5, "Xiaomi", "Mi 11", 176500, "xiam.jpg");
 const celular6 = new Celular(6, "Alcatel", "H3", 64400, "3H.jpg");
+const celular7 = new Celular(7, "asdasdasd", "asdasdasd", 1276500, "xiam.jpg");
 
-const celulares = [celular1, celular2, celular3, celular4, celular5, celular6];
+const celulares = [celular1, celular2, celular3, celular4, celular5, celular6, celular7];
 
 
 function mostrar_catalogo(){
@@ -85,29 +86,32 @@ function calcularCuotas() {
 
         let Cuotas = document.getElementById("cuotas").value;
 
+        let totalReduce = document.getElementById("totalReduce").textContent;
+
     
-    let modelo_celular = document.getElementById("modelo_celular").value;
+    //let modelo_celular = document.getElementById("modelo_celular").value;
 
     if (isNaN(Cuotas) || Cuotas <= 0) {
             document.getElementById("resultado").innerHTML = '<span "text-center fs-2 p-2">  La cantidad de cuotas ingresadas es inválida.😭 <span> ';
-    } else if (modelo_celular === "") {
-        document.getElementById("resultado").innerHTML = ' El modelo del celular no puede estar vacío.';
+    //} else if (modelo_celular === "") {
+   //     document.getElementById("resultado").innerHTML = ' El modelo del celular no puede estar vacío.';
     } else {
-        const celulares_encontrados = buscar(modelo_celular);
+        //const celulares_encontrados = buscar(modelo_celular);
+        // if (celulares_encontrados.length === 0) {
+        //     //let resultado = 'No se encontraron celulares con el modelo ' + modelo_celular + '<br>';
+        //     for (const celular_ of celulares) {
+        //         resultado += celular_.marca + ' ' + celular_.modelo + ' precio: ' + celular_.precio + '<br>';
+        //     }
+        //     document.getElementById("resultado").innerHTML = resultado;
+        // } else {
+        //     let resultado = '';
+        //     for (const celular of celulares_encontrados) {
+                // resultado += celular.marca + ' ' + celular.modelo + ' - Precio de cuota: $' + dividir_cuotas(celular.precio, Cuotas).toFixed(2) + '<br>';
 
-        if (celulares_encontrados.length === 0) {
-            let resultado = 'No se encontraron celulares con el modelo ' + modelo_celular + '<br>';
-            for (const celular_ of celulares) {
-                resultado += celular_.marca + ' ' + celular_.modelo + ' precio: ' + celular_.precio + '<br>';
-            }
+                resultado = 'Precio de cuota: $' + dividir_cuotas(totalReduce, Cuotas).toFixed(2) + '<br>';
+         //   }
             document.getElementById("resultado").innerHTML = resultado;
-        } else {
-            let resultado = '';
-            for (const celular of celulares_encontrados) {
-                resultado += celular.marca + ' ' + celular.modelo + ' - Precio de cuota: $' + dividir_cuotas(celular.precio, Cuotas).toFixed(2) + '<br>';
-            }
-            document.getElementById("resultado").innerHTML = resultado;
-        }
+        //}
         
     }
 }
@@ -286,8 +290,10 @@ function calcularTotal(array){
         {return acumulador + Celular.precio},
         0
     )
+   
+
     totalReduce > 0 ? precioTotal.innerHTML = `  
-    <strong>El total de su compra es: ${totalReduce}</strong>` : precioTotal.innerHTML = `No hay productos en el carrito` 
+    <strong>  El total de su compra es:<div id="totalReduce">${totalReduce}</div></strong>` : precioTotal.innerHTML = `No hay productos en el carrito` 
   } 
 //finalizar compra
 

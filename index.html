@@ -127,9 +127,9 @@ width: 16px;}
                         </div>
                     </li>
                    
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <div id="contar-items" class="contar"></div>
-                    </li>
+                    </li> -->
 
                     <!-- <li class="nav-item">
                         <div class="icon-container">
@@ -157,30 +157,9 @@ width: 16px;}
  <div class="container-xxl">
     <div class="row flex-column flex-md-row">
         <!-- Primera columna -->
-        <div class="col-4  ">
-            <div class="pt-5 card text-start rounded-2 border border-white" style="width: 255px;   background-color: #fffdfd;">
-                <div class="card-body">
-                    <div id="clieteHtml"></div>
-                    <p id="resultado" class="card-text text-center  fs-5">El <span style="  border-radius: 5px; background-color: #6351ce; color: white; padding:0px 10px 5px;"> resultado</span> es </p>
-                    <br><br> <br>
-                </div>
-            </div>
-        </div>
+
         <!-- Segunda columna -->
-        <div class="col-8    py-2">
-            <div class="mi-card rounded-2 pt-2 text-white  " style="background-color: #fffdfd;">
-                <div class="mb-3 bg">
-                    <br><br><br>
-                        <input type="text" class="placeholdericon form-control form-control-sm" id="nombre_cliente" name="nombre_cliente" aria-describedby="helpId" placeholder="   Ingrese su nombre">
-                </div>
-                <br>
-                <input type="text" class="placeholdericon form-control form-control-sm" id="cuotas" name="cuotas" aria-describedby="helpId" placeholder="  Ingrese la Cantidad de cuotas">
-                <br>
-                <input type="text" class="placeholdericon form-control form-control-sm text-dark" id="modelo_celular" name="modelo_celular" aria-describedby="helpId" placeholder="   Ingrese el modelo que aparece en el catálogo">
-                <button class="btn btn-primary pt-2 mt-5" style="top: -20px; position: relative;" type="button" id="Calcualr_Btn">Calcular</button>
-                <br>
-            </div>
-        </div>
+    
     </div>
     <div class="container" style="padding-top: 100px; padding-bottom: 20px;"></div>
     <div id="catalogoHTML" class="row"></div>
@@ -251,11 +230,54 @@ width: 16px;}
             <div class="row ml-ato">
               <p id="precioTotal"></p>
             </div>
+     <div class="col-8    py-2">
+            <div class="mi-card rounded-2 pt-2 text-white  " style="background-color: #fffdfd;">
+                <div class="mb-3 bg">
+                    <br><br><br>
+                        <input type="text" class="placeholdericon form-control form-control-sm" id="nombre_cliente" name="nombre_cliente" aria-describedby="helpId" placeholder="   Ingrese su nombre">
+                </div>
+                <br>
+                
+                <input type="text" class="placeholdericon form-control form-control-sm" id="cuotas" name="cuotas" aria-describedby="helpId" placeholder="  Ingrese la Cantidad de cuotas">
+                <br>
+               
+               
+                <!-- <input type="text" class="placeholdericon form-control form-control-sm text-dark" id="modelo_celular" name="modelo_celular" aria-describedby="helpId" placeholder="   Ingrese el modelo que aparece en el catálogo"> -->
+               
+               
+                <button class="btn btn-primary pt-2 mt-5" style="top: -20px; position: relative;" type="button" id="Calcualr_Btn">Calcular</button>
+                <br>
+            </div>
+        </div>
+
             <div class="modal-footer">
               
-              
+                <div class="col-4  ">
+                    <div class="pt-5 card text-start rounded-2 border border-white" style="width: 255px;   background-color: #fffdfd;">
+                        <div class="card-body">
+                            <div id="clieteHtml"></div>
+                            <p id="resultado" class="card-text text-center  fs-5">El <span style="  border-radius: 5px; background-color: #6351ce; color: white; padding:0px 10px 5px;"> resultado</span> es </p>
+                            <br><br> <br>
+                        </div>
+                    </div>
+                </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+
+
               <button type="button" data-bs-dismiss="modal" class="btn btn-success" id="botonFinalizarCompra">Finalizar Compra</button>
+
+
+
+
+
+
+
+
+           
+
+
+
             </div>
           </div>
         </div>
