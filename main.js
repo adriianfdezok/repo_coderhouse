@@ -23,7 +23,7 @@ const celulares = [celular1, celular2, celular3, celular4, celular5, celular6, c
 
 function mostrar_catalogoHTML(celular) {
     return `
-    <div class="col-8 col-md-6" style="width:300px; padding-top:20px;">
+    <div  style="width:300px; padding-top:20px;">
         <div class="card">
             <img src="src="assets/${celular.imagen}" class="card-img-top" alt="Imagen 1">
             <div class="card-body">
@@ -57,7 +57,7 @@ async function mostrar_catalogo() {
 
     for (const celular of celulares) {
         let celulares_div = document.createElement("div");
-        celulares_div.className = "col-8 col-md-8 col-lg-4 my-2";
+        celulares_div.className = "col-4 col-md-4 col-lg-5 pt-2 m-3 my-5 ";
         celulares_div.innerHTML = `
             <div id="${celular.id}" class="card" style="width: 18rem;">
                     <img class="card-img-top img-fluid" style="width: 150px;" src="assets/${celular.imagen}" alt="${celular.marca} de ${celular.modelo} ">
@@ -78,9 +78,7 @@ async function mostrar_catalogo() {
     }
 }
 
-// Resto del código sin cambios
-
-// ...
+ 
 
 setTimeout(() => {
     mostrar_catalogo();
@@ -230,7 +228,7 @@ function mostrarCliente() {
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
-                    title: `este ${CelularAgregado.marca}${CelularAgregado.modelo} no se puede agregar  por que ya existe en el carrito`,
+                    title: `este ${CelularAgregado.marca}    ${CelularAgregado.modelo} no se puede agregar  por que ya existe en el carrito`,
                     showConfirmButton: false,
                     timer: 1000
                 }) ;
