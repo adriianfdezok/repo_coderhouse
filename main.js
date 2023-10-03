@@ -43,7 +43,10 @@ function mostrar_catalogoHTML(celular) {
 function cargarProductosDesdeLocalStorage() {
     return new Promise((resolve) => {
         const carrito = JSON.parse(localStorage.getItem("carrito")) || []; /* || [] -> proporcionar un valor por defecto */
+       
         productosCarrito = carrito;
+        document.getElementById("contar-items").innerHTML =productosCarrito.length //"9999";//
+
         resolve();
     });
 }
@@ -84,10 +87,7 @@ setTimeout(() => {
     mostrar_catalogo();
 }, 500);
 
-new kursor({
-    type: 1
-});
-
+ 
 
 function calcularCuotas() {
 
@@ -214,6 +214,7 @@ function mostrarCliente() {
             {
                 document.getElementById("contar-items").innerHTML =productosCarrito.length+1//"9999";//
                 productosCarrito.push(elemento),
+                
                 localStorage.setItem("carrito", JSON.stringify(productosCarrito)),
                 Swal.fire({
                     position: 'center',
@@ -244,12 +245,12 @@ function cargarProductosCarrito(array){
     array.forEach(
         (productoCarrito) => {
             modalBodyCarrito.innerHTML += `
-            <div class="card border-primary mb-3" id ="productoCarrito${productoCarrito.id}" style="max-width: 540px;">
+            <div class="card   mb-3" id ="productoCarrito${productoCarrito.id}" style="max-width: 540px;">
                  <img class="card-img-top" height="300px" src="assets/${productoCarrito.imagen}" alt="">
                  <div class="card-body">
-                        <h4 class="card-title">${productoCarrito.titulo}</h4>
-                        <p class="card-text">${productoCarrito.autor}</p>
-                         <p class="card-text">$${productoCarrito.precio}</p> 
+                        <h4 class="card-title">${productoCarrito.marca}</h4>
+                        <p class="card-text">${productoCarrito.modelo}</p>
+                         <p class="card-text">$${productoCarrito.precio}  </p> 
                          <button class= "btn btn-danger" id="botonEliminar${productoCarrito.id}"><i class="fas fa-trash-alt"></i></button>
                  </div>    
             </div>
