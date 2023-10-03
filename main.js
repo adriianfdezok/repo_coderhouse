@@ -45,7 +45,7 @@ function cargarProductosDesdeLocalStorage() {
         const carrito = JSON.parse(localStorage.getItem("carrito")) || []; /* || [] -> proporcionar un valor por defecto */
        
         productosCarrito = carrito;
-        document.getElementById("contar-items").innerHTML =productosCarrito.length //"9999";//
+        document.getElementById("contar-items").innerHTML =productosCarrito.length 
 
         resolve();
     });
@@ -60,7 +60,7 @@ async function mostrar_catalogo() {
 
     for (const celular of celulares) {
         let celulares_div = document.createElement("div");
-        celulares_div.className = "col-8 pt-4 py-4 col-md-4    ";
+        celulares_div.className = "col-8 pt-4 py-4 col-sm-8 col-md-4    ";
         celulares_div.innerHTML = `
             <div id="${celular.id}" class="card" style="width: 18rem;">
                     <img class="card-img-top img-fluid" style="width: 150px;" src="assets/${celular.imagen}" alt="${celular.marca} de ${celular.modelo} ">
@@ -85,7 +85,7 @@ async function mostrar_catalogo() {
 
 setTimeout(() => {
     mostrar_catalogo();
-}, 500);
+}, 250);
 
  
 
@@ -122,7 +122,7 @@ function dividir_cuotas(precio, cantidad_cuotas) {
 
 
 function buscar(modelo) {
-    const celulares_encontrados = celulares.filter((celular) => celular.modelo.toLowerCase() === modelo.toLowerCase());
+    const celulares_encontrados = celulares.filter((celular) => celular.marca.toLowerCase() === modelo.toLowerCase()  );
     return celulares_encontrados;
 }
 
@@ -281,8 +281,7 @@ function cargarProductosCarrito(array){
     calcularTotal(array)    
 }
 function calcularTotal(array){
-     console.log(`asdkapsdkapkdpoaskpasd`)
-    const totalReduce = array.reduce(
+     const totalReduce = array.reduce(
          (acumulador, Celular)=>
         {return acumulador + Celular.precio},
         0
@@ -309,10 +308,17 @@ function finalizarCompra(array){
     document.getElementById("contar-items").innerHTML ="0";
 } 
 
-setTimeout(() => {
-    mostrar_catalogo();
-}, 500);
 
+ let loader =document.getElementById("loader")
+setTimeout(() => {
+
+    mostrar_catalogo();
+
+}, 6500);
+
+setTimeout(() => {
+    loader.remove() 
+}, 500);
 new kursor({
     type: 1
  
