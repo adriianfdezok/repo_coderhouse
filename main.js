@@ -60,7 +60,7 @@ async function mostrar_catalogo() {
 
     for (const celular of celulares) {
         let celulares_div = document.createElement("div");
-        celulares_div.className = "col-4 col-md-4 col-lg-5 pt-2 m-3 my-5 ";
+        celulares_div.className = "col-8 pt-4 py-4 col-md-4    ";
         celulares_div.innerHTML = `
             <div id="${celular.id}" class="card" style="width: 18rem;">
                     <img class="card-img-top img-fluid" style="width: 150px;" src="assets/${celular.imagen}" alt="${celular.marca} de ${celular.modelo} ">
