@@ -21,6 +21,49 @@ const celular7 = new Celular(7, "asdasdasd", "asdasdasd", 1276500, "xiam.jpg");
 
 const celulares = [celular1, celular2, celular3, celular4, celular5, celular6, celular7];
 
+
+
+let modalBodyCarrito = document.getElementById("modal-bodyCarrito");
+let productosCarrito = [];
+
+class Celular {
+    constructor(id, marca, modelo, precio, imagen) {
+        this.id = id;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.precio = precio;
+        this.imagen = imagen;
+    }
+}
+
+const celular1 = new Celular(1, "motorola", "e12", 67999, "moto_e15.jpg");
+const celular2 = new Celular(2, "samsung", "a4", 80000, "sam_a4.jpg");
+const celular3 = new Celular(3, "motorola", "e15", 98600, "moto_e15.jpg");
+const celular4 = new Celular(4, "iPhone", "12 Pro", 215000, "iphone12.jpg");
+const celular5 = new Celular(5, "Xiaomi", "Mi 11", 176500, "xiam.jpg");
+const celular6 = new Celular(6, "Alcatel", "H3", 64400, "3H.jpg");
+
+const celulares = [celular1, celular2, celular3, celular4, celular5, celular6];
+
+const catalgoosCarga = async () => {
+    const response = await response("celulares.json");
+    const dataCelulares = await resp.json();
+
+    for (let celular of dataCelulares) {
+        let celularNuevo = new Celular(celular.id, celular.marca, celular.modelo, celular.precio, celular.imagen);
+         
+        array.push(celularNuevo);
+        console.log(dataCelulares)
+
+    }
+
+    localStorage.setItem("celular", JSON.stringify(celulares));
+};
+
+
+
+
+
 function mostrar_catalogoHTML(celular) {
     return `
     <div  style="width:300px; padding-top:20px;">
