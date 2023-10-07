@@ -26,16 +26,7 @@ const celulares = [celular1, celular2, celular3, celular4, celular5, celular6, c
 let modalBodyCarrito = document.getElementById("modal-bodyCarrito");
 let productosCarrito = [];
 
-class Celular {
-    constructor(id, marca, modelo, precio, imagen) {
-        this.id = id;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.precio = precio;
-        this.imagen = imagen;
-    }
-}
-
+ 
 const catalgoosCarga = async () => {
     const response = await response("celulares.json");
     const dataCelulares = await resp.json();
