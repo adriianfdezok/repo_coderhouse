@@ -1,0 +1,53 @@
+
+[
+    {
+         "id": "1",
+         "marca":"motorola",
+         "modelo":"e12",
+         "precio":"67999",
+         "imagen":"moto_e15.jpg"
+    },
+    {
+        "id": "2",
+        "marca":"samsung",
+        "modelo":"a4",
+        "precio":"80000",
+        "imagen":"sam_a4.jpg"
+   },
+       {
+         "id": "3",
+         "marca":"motorola",
+         "modelo":"e15",
+         "precio":"98600",
+         "imagen":"moto_e15.jpg"
+    },
+    {
+        "id": "4",
+        "marca":"iPhone",
+        "modelo":"12 Pro",
+        "precio":"215000",
+        "imagen":"iphone12.jpg"
+   },
+       {
+         "id": "5",
+         "marca":"Xiaomi",
+         "modelo":"Mi 11",
+         "precio":"176500",
+         "imagen":"xiam.jpg"
+    },
+    {
+        "id": "6",
+        "marca":"Alcatel",
+        "modelo":"H3",
+        "precio":"64400",
+        "imagen":"3H.jpg"
+   },
+       {
+         "id": "7",
+         "marca":"motorola",
+         "modelo":"e12",
+         "precio":"67999",
+         "imagen":"moto_e15.jpg"
+    }
+
+]
