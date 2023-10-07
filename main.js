@@ -36,15 +36,6 @@ class Celular {
     }
 }
 
-const celular1 = new Celular(1, "motorola", "e12", 67999, "moto_e15.jpg");
-const celular2 = new Celular(2, "samsung", "a4", 80000, "sam_a4.jpg");
-const celular3 = new Celular(3, "motorola", "e15", 98600, "moto_e15.jpg");
-const celular4 = new Celular(4, "iPhone", "12 Pro", 215000, "iphone12.jpg");
-const celular5 = new Celular(5, "Xiaomi", "Mi 11", 176500, "xiam.jpg");
-const celular6 = new Celular(6, "Alcatel", "H3", 64400, "3H.jpg");
-
-const celulares = [celular1, celular2, celular3, celular4, celular5, celular6];
-
 const catalgoosCarga = async () => {
     const response = await response("celulares.json");
     const dataCelulares = await resp.json();
